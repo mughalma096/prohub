@@ -1,0 +1,26 @@
+<div id="<%= dom_id project %>" class="overflow-hidden bg-white rounded-md">
+  <div class="mx-auto px-7 py-7">
+    <div class="mx-auto grid grid-cols-2">
+      <div>
+        <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          <%= link_to project.name, project, class: "text-blue-400 hover:underline" %>
+        </p>
+        <p class="mt-6 text-lg/8 text-gray-600"><%= project.description %></p>
+        <dl class="mt-10 space-y-8 text-base/7 text-gray-600">
+          <div class="flex gap-3 flex-wrap">
+            <% project.technologies.each do |technology| %>
+              <div class="bg-white/60 ring-2 ring-gray-900/10 font-semibold text-gray-900 flex items-center rounded-full py-2 px-3 gap-2">
+                <%= image_tag technology.logo, class: "size-10 shrink-0 rounded-full" %>
+                <span class="block truncate"><%= technology.name %></span>
+              </div>
+            <% end %>
+          </div>
+        </dl>
+      </div>
+      <div class="min-h-full min-w-full">
+        <%= image_tag project.cover.presence || "https://tailwindui.com/plus-assets/img/component-images/dark-project-app-screenshot.png",
+                      class: "h-[46rem] rounded min-w-full object-cover [mask-image:linear-gradient(to_right,rgba(0,0,0,0.005)_0%,rgba(0,0,0,0.7)_100%)]" %>
+      </div>
+    </div>
+  </div>
+</div>

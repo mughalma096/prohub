@@ -1,0 +1,50 @@
+<%= form_with(model: registration, url: registrations_path, class: "contents") do |form| %>
+  <% if registration.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+      <ul>
+        <% registration.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5 flex">
+    <div class="w-full mr-2">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="w-full ml-2">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :email_address %>
+    <%= form.text_field :email_address, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :password %>
+    <%= form.password_field :password, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+    <div class="inline">
+      <%= form.submit "Register", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    </div>
+
+    <div class="mt-4 text-md text-gray-500 sm:mt-0">
+      <%= link_to "Already have account?", new_session_path, class: "text-gray-700 underline" %>
+    </div>
+  </div>
+<% end %>

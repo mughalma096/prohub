@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-100">
+  <head>
+    <title><%= content_for(:title) || "Prohub" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="h-full">
+    <div class="min-h-full">
+      <%= render 'layouts/navbar' %>
+      <header class="bg-white shadow">
+        <div class="flex justify-between mx-auto py-4 sm:px-6 lg:px-8">
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900"><%= controller_name.titleize %></h1>
+        </div>
+      </header>
+      <main>
+        <!-- Notification Container -->
+        <div data-controller="notification" class="fixed top-13 right-0 z-50 transform translate-x-full transition-transform duration-300">
+          <% if flash.any? %>
+            <div data-notification-target="container" class="<%= flash[:alert] ? "bg-red-400" : "bg-green-400" %> text-white px-6 py-4 rounded-lg shadow-lg flex items-center justify-between">
+              <span><%= flash[:alert] || flash[:notice] %></span>
+              <button data-action="click->notification#hideNotification()" class="ml-4 text-white hover:text-gray-200">&times;</button>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="mx-auto py-4 sm:px-6 lg:px-8">
+          <%= yield %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
