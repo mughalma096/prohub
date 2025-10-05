@@ -73,6 +73,8 @@ Now open your browser and navigate to http://localhost:3000 🎉
 ## 📄 PDF Generation
 
 Each project can be exported as a downloadable PDF that includes all key details — ideal for sharing your portfolio or keeping records offline.
+[contact stack.pdf](https://github.com/user-attachments/files/22706031/contact.stack.pdf)
+
 
 ## 🤝 Contributing
 
