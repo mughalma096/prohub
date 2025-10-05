@@ -1,10 +1,8 @@
 # 🚀 ProHub
 
-ProHub is a Ruby on Rails application designed to showcase projects. Users can create and manage projects,
-list the technologies used in each project, and filter projects by technologies. Additionally, users can 
-generate PDF files for their projects. The application features a responsive design built with **Tailwind CSS**,
-a navbar, user profiles, and more.
+**ProHub** is a powerful Ruby on Rails application built to help **sales teams** and **freelancers** showcase their best work with ease. It enables users to **quickly filter projects** based on client needs, **generate professional PDF portfolios**, and share **tailored project samples** to win more clients.
 
+With **ProHub**, you can effortlessly **create and manage projects, highlight technologies used**, and **filter by tech stack** — all within a modern, responsive interface powered by **Tailwind CSS**. The app also includes **user profiles**, a sleek navbar, and **one-click PDF export**, making it the perfect tool to present your projects with confidence. 🚀
 ## 🖼️ Screenshots
 #### Home Page
 <img width="1792" height="887" alt="projects" src="https://github.com/user-attachments/assets/0ea81b3e-eded-40c5-b321-487c7d532395" />
